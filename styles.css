@@ -11,10 +11,11 @@ body {
   #game {
     max-width: 500px;
     max-height: 400px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     color: #ffffff;
     margin: 30px auto 0px;
     padding: 10px;
+    background-color: rgba(0, 0, 10, 0);
   }
   
   #controls,
@@ -22,6 +23,13 @@ body {
     border: 1px solid #0a0a23;
     padding: 5px;
     color: #0a0a23;
+    background-color: rgba(0, 0, 10, 0.5);
+  }
+
+  #controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
   }
   
   #monsterStats {
@@ -42,8 +50,15 @@ body {
     background-color: #feac32;
     background-image: linear-gradient(#fecc4c, #ffac33);
     border: 3px solid #feac32;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, transform 0.1s ease-in-out;
   }
 
+  button:hover {
+    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.7); /* Glow effect */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
   .centered-div {
     position: absolute;
     top: 50%;
@@ -56,4 +71,47 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .gradient-text {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(
+      to right,
+      #4285F4, /* Blue */
+      #f4009f, /* Yellow */
+      #DB4437, /* Red */
+      #5d0f9d, /* Green */
+      #4285F4  /* Blue again to loop smoothly */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: gradient-animation 5s linear infinite;
+    text-align: center;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+  .xpStat {
+    color:#8c00ff;
+    text-shadow: 0 0 10px #8c00ff, 0 0 20px #8c00ff, 0 0 30px #8c00ff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+
+  .healthStat {
+    color: #ff0000 ;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+  }
+
+  .goldStat {
+    color: #FFD300;
+    text-shadow: 0 0 10px #FFD300, 0 0 20px #FFD300, 0 0 30px #FFD300, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
   }
