@@ -17,33 +17,39 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: 'stick', power: 5 },
-  { name: 'dagger', power: 30 },
-  { name: 'claw hammer', power: 50 },
-  { name: 'sword', power: 100 }
+  { name: 'Great Sword', power: 25 },
+  { name: 'Excalibur', power: 75 },
+  { name: 'Rhongomiant', power: 175 },
+  { name: 'Ru Yi Jing Gu Bang', power: 325 },
+  { name: 'Gáe Bulg', power: 525 },
+  { name: 'Kusanagi', power: 775 },
+  { name: 'Durendal', power: 1075 },
+  { name: 'Mjölnir', power: 1425 },
+  { name: 'The Sword of Surtr', power: 1825 },
+  { name: "Gungnir - Odin's spear", power: 2275 },
 ];
 const monsters = [
   {
-    name: "slime",
-    level: 2,
-    health: 15
-  },
-  {
-    name: "fanged beast",
-    level: 8,
-    health: 60
-  },
-  {
-    name: "dragon",
+    name: "Basilisk",
     level: 20,
     health: 300
+  },
+  {
+    name: "Yamata no Orochi",
+    level: 160,
+    health: 1200
+  },
+  {
+    name: "Tiamat - Primordial Dragon",
+    level: 800,
+    health: 9600
   }
 ]
 const locations = [
   {
     name: "town square",
-    "button text": ["Go to store", "Go to cave", "Fight dragon"],
-    "button functions": [goStore, goCave, fightDragon],
+    "button text": ["Go to store", "Go to cave", "Fight Tiamat"],
+    "button functions": [goStore, goCave, fightTiamat],
     text: "You are in the town square. You see a sign that says \"Store\"."
   },
   {
@@ -54,8 +60,8 @@ const locations = [
   },
   {
     name: "cave",
-    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
-    "button functions": [fightSlime, fightBeast, goTown],
+    "button text": ["Fight Basilisk", "Fight Yamata no Orochi", "Go to town square"],
+    "button functions": [fightBasilisk, fightYamata, goTown],
     text: "You enter the cave. You see some monsters."
   },
   {
@@ -80,7 +86,7 @@ const locations = [
     name: "win", 
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
     "button functions": [restart, restart, restart], 
-    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" 
+    text: "You defeat the Great Tiamat! YOU WIN THE GAME! &#x1F389;" 
   },
   {
     name: "easter egg",
@@ -93,7 +99,7 @@ const locations = [
 // initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
-button3.onclick = fightDragon;
+button3.onclick = fightTiamat;
 
 function update(location) {
   monsterStats.style.display = "none";
@@ -161,17 +167,17 @@ function sellWeapon() {
   }
 }
 
-function fightSlime() {
+function fightBasilisk() {
   fighting = 0;
   goFight();
 }
 
-function fightBeast() {
+function fightYamata() {
   fighting = 1;
   goFight();
 }
 
-function fightDragon() {
+function fightTiamat() {
   fighting = 2;
   goFight();
 }
