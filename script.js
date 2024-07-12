@@ -1,10 +1,10 @@
 let xp = 0;
-let health = 100;
+let health = 1000;
 let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = ["Arondight"];
 
 const button1 = document.querySelector('#button1');
 const button2 = document.querySelector("#button2");
@@ -17,16 +17,16 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: 'Great Sword', power: 25 },
-  { name: 'Excalibur', power: 75 },
-  { name: 'Rhongomiant', power: 175 },
-  { name: 'Ru Yi Jing Gu Bang', power: 325 },
-  { name: 'Gáe Bulg', power: 525 },
-  { name: 'Kusanagi', power: 775 },
-  { name: 'Durendal', power: 1075 },
-  { name: 'Mjölnir', power: 1425 },
-  { name: 'The Sword of Surtr', power: 1825 },
-  { name: "Gungnir - Odin's spear", power: 2275 },
+  { name: 'Arondight', power: 50 },
+  { name: 'Excalibur', power: 100 },
+  { name: 'Rhongomiant', power: 200 },
+  { name: 'Durendal', power: 350 },
+  { name: 'Gáe Bulg', power: 550 },
+  { name: 'Kusanagi', power: 800 },
+  { name: 'Ru Yi Jing Gu Bang', power: 1100 },
+  { name: 'Mjölnir', power: 1450 },
+  { name: 'The Sword of Surtr', power: 1850 },
+  { name: "Gungnir - Odin's spear", power: 2300 },
 ];
 const monsters = [
   {
@@ -127,7 +127,7 @@ function goCave() {
 function buyHealth() {
   if (gold >= 10) {
     gold -= 10;
-    health += 10;
+    health += 500;
     goldText.innerText = gold;
     healthText.innerText = health;
   } else {
@@ -248,10 +248,10 @@ function winGame() {
 
 function restart() {
   xp = 0;
-  health = 100;
+  health = 1000;
   gold = 50;
   currentWeapon = 0;
-  inventory = ["stick"];
+  inventory = ["Arondight"];
   goldText.innerText = gold;
   healthText.innerText = health;
   xpText.innerText = xp;
