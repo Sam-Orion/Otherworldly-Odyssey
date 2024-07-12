@@ -8,39 +8,40 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-size: 16px;
   }
   
-  #text {
+#text {
     background-color: rgba(10, 10, 35, 0.5);
     color: #ffffff;
     padding: 10px;
   }
   
-  #game {
-    max-width: 500px;
-    max-height: 400px;
-    /* background-color: #ffffff; */
-    color: #ffffff;
-    margin: 30px auto 0px;
-    padding: 10px;
-    background-color: rgba(0, 0, 10, 0);
+#game {
+  max-width: 90%; /* Changed from fixed width */
+  max-height: none; /* Remove max-height */
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 10, 0);
   }
   
-  #controls,
-  #stats {
+#controls,
+#stats {
     border: 1px solid #0a0a23;
     padding: 5px;
     color: #0a0a23;
     background-color: rgba(0, 0, 10, 0.5);
   }
 
-  #controls {
+#controls {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 10px; /* Add space between buttons */
   }
   
-  #monsterStats {
+#monsterStats {
     display: none;
     border: 1px solid #0a0a23;
     padding: 5px;
@@ -48,11 +49,11 @@ body {
     background-color: #c70d0d;
   }
   
-  .stat {
+.stat {
     padding-right: 10px;
   }
   
-  button {
+button {
     cursor: pointer;
     color: #0a0a23;
     background-color: #feac32;
@@ -61,21 +62,24 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: box-shadow 0.3s ease-in-out, transform 0.1s ease-in-out;
+    width: 100%; /* Full width buttons */
+    padding: 10px; /* Larger touch target */
+    font-size: 1em; /* Relative font size */
   }
 
-  button:hover {
+button:hover {
     box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.7); /* Glow effect */
     transform: scale(1.05); /* Slightly increase size on hover */
 }
-  .centered-div {
+.centered-div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .gradient-text {
-    font-size: 48px;
+.gradient-text {
+    font-size: 2em; /* Relative font size */
     font-weight: bold;
     background: linear-gradient(
       to right,
@@ -89,11 +93,11 @@ body {
     background-clip: text;
     color: transparent;
     background-size: 200% auto;
-    animation: gradient-animation 5s linear infinite;
+    animation: gradient-animation 10s linear infinite;
     text-align: center;
   }
   
-  @keyframes gradient-animation {
+@keyframes gradient-animation {
     0% {
       background-position: 0% center;
     }
@@ -102,17 +106,59 @@ body {
     }
   }
 
-  .xpStat {
+.xpStat {
     color:#8c00ff;
     text-shadow: 0 0 10px #8c00ff, 0 0 20px #8c00ff, 0 0 30px #8c00ff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
   }
 
-  .healthStat {
+.healthStat {
     color: #ff0000 ;
     text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
   }
 
-  .goldStat {
+.goldStat {
     color: #FFD300;
     text-shadow: 0 0 10px #FFD300, 0 0 20px #FFD300, 0 0 30px #FFD300, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
   }
+
+#footnote {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+    color: white;
+  }
+
+#arrow {
+    font-size: 36px;
+  }
+
+#redArrow {
+    color:#c70d0d;
+  }
+
+#purple {
+    color:#8c00ff;
+  }
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  #game {
+    max-width: 500px;
+  }
+
+  #controls {
+    flex-direction: row;
+  }
+
+  button {
+    width: auto;
+  }
+
+  .gradient-text {
+    font-size: 48px;
+  }
+}
